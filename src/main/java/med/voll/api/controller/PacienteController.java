@@ -1,11 +1,10 @@
 package med.voll.api.controller;
 
-
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import med.voll.api.domain.paciente.*;
+import med.voll.api.infra.errores.TratadorDeErrores;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.data.domain.Page;
@@ -67,6 +66,10 @@ public class PacienteController {
     @Operation(summary = "obtiene los detalles para el paciente con el ID indicado")
     public ResponseEntity detallar(@PathVariable Long id) {
         var paciente = repository.getReferenceById(id);
-        return ResponseEntity.ok(new DatosDetallesPaciente(paciente));
+        if (paciente.getActivo() == true) {
+            return ResponseEntity.ok(new DatosDetallesPaciente(paciente));
+        } else {
+            return ResponseEntity.noContent().build();
+        }
     }
 }

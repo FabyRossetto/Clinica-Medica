@@ -1,4 +1,4 @@
-package med.voll.api.controller;
+ package med.voll.api.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -43,7 +43,7 @@ public class MedicoController {
 
     @GetMapping
     @Operation(summary = "Obtiene el listado de medicos")
-    public ResponseEntity<Page<DatosListadoMedico>> listadoMedicos(@PageableDefault(size = 2) Pageable paginacion) {
+    public ResponseEntity<Page<DatosListadoMedico>> listadoMedicos(@PageableDefault(size = 10) Pageable paginacion) {
 //        return medicoRepository.findAll(paginacion).map(DatosListadoMedico::new);
         return ResponseEntity.ok(medicoRepository.findByActivoTrue(paginacion).map(DatosListadoMedico::new));
     }
@@ -62,14 +62,25 @@ public class MedicoController {
     }
 
     // DELETE LOGICO
+//    @DeleteMapping("/{id}")
+//    @Transactional
+//    @Operation(summary = "Elimina un medico registrado - inactivo")
+//    public ResponseEntity eliminarMedico(@PathVariable Long id) {
+//        Medico medico = medicoRepository.getReferenceById(id);
+//        medico.desactivarMedico();
+//        return ResponseEntity.noContent().build();
+//    }
+    
+    // DELETE
     @DeleteMapping("/{id}")
     @Transactional
-    @Operation(summary = "Elimina un medico registrado - inactivo")
+    @Operation(summary = "Elimina de la base de datos un medico registrado")
     public ResponseEntity eliminarMedico(@PathVariable Long id) {
-        Medico medico = medicoRepository.getReferenceById(id);
-        medico.desactivarMedico();
-        return ResponseEntity.noContent().build();
+       medicoRepository.deleteById(id);
+       return ResponseEntity.noContent().build();
     }
+    
+    
 
     @GetMapping("/{id}")
     @Operation(summary = "Obtiene los registros del medico con ID")
