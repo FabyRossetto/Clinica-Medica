@@ -36,6 +36,11 @@ public class Usuario implements UserDetails {
         return clave;
     }
 
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+    
+
     @Override
     public String getUsername() {
         return login;

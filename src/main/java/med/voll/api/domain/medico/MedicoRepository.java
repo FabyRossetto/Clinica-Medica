@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import org.springframework.data.repository.query.Param;
 
 @Repository
 public interface MedicoRepository extends JpaRepository<Medico, Long> {
@@ -27,7 +28,7 @@ public interface MedicoRepository extends JpaRepository<Medico, Long> {
             order by rand()
             limit 1
             """)
-    Medico seleccionarMedicoConEspecialidadEnFecha(Especialidad especialidad, LocalDateTime fecha);
+    Medico seleccionarMedicoConEspecialidadEnFecha( @Param("especialidad") Especialidad especialidad,  @Param("fecha") LocalDateTime fecha);
 
 
     @Query("""
@@ -35,5 +36,5 @@ public interface MedicoRepository extends JpaRepository<Medico, Long> {
             from Medico m
             where m.id=:idMedico
             """)
-    Boolean findActivoById(Long idMedico);
+    Boolean findActivoById(@Param("idMedico")Long idMedico);
 }

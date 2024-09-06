@@ -55,7 +55,7 @@ class MedicoRepositoryTest {
         //given
         var proximoLunes10H = LocalDate.now()
                 .with(TemporalAdjusters.next(DayOfWeek.MONDAY))
-                .atTime(10,0);
+                .atTime(12,0);
 
         var medico=registrarMedico("Jose","j@mail.com","123456",Especialidad.CARDIOLOGIA);
 

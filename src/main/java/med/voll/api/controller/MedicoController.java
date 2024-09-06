@@ -31,7 +31,7 @@ public class MedicoController {
                                                                 UriComponentsBuilder uriComponentsBuilder) {
         Medico medico = medicoRepository.save(new Medico(datosRegistroMedico));
         DatosRespuestaMedico datosRespuestaMedico = new DatosRespuestaMedico(medico.getId(), medico.getNombre(), medico.getEmail(),
-                medico.getTelefono(), medico.getEspecialidad().toString(),
+                medico.getTelefono(), medico.getDocumento(),
                 new DatosDireccion(medico.getDireccion().getCalle(), medico.getDireccion().getDistrito(),
                         medico.getDireccion().getCiudad(), medico.getDireccion().getNumero(),
                         medico.getDireccion().getComplemento()));
@@ -43,7 +43,7 @@ public class MedicoController {
 
     @GetMapping
     @Operation(summary = "Obtiene el listado de medicos")
-    public ResponseEntity<Page<DatosListadoMedico>> listadoMedicos(@PageableDefault(size = 10) Pageable paginacion) {
+    public ResponseEntity<Page<DatosListadoMedico>> listadoMedicos(@PageableDefault(size = 20) Pageable paginacion) {
 //        return medicoRepository.findAll(paginacion).map(DatosListadoMedico::new);
         return ResponseEntity.ok(medicoRepository.findByActivoTrue(paginacion).map(DatosListadoMedico::new));
     }

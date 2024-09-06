@@ -37,7 +37,7 @@ public class PacienteController {
 
     @GetMapping
     @Operation(summary = "Obtiene el listado para los pacientes")
-    public ResponseEntity<Page<DatosListaPaciente>> listar(@PageableDefault(size = 10, sort = {"nombre"}) Pageable paginacion) {
+    public ResponseEntity<Page<DatosListaPaciente>> listar(@PageableDefault(size = 20) Pageable paginacion) {
         var page = repository.findAllByActivoTrue(paginacion).map(DatosListaPaciente::new);
         return ResponseEntity.ok(page);
     }
