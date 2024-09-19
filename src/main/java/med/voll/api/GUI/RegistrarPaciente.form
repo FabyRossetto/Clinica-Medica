@@ -44,16 +44,15 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
               <Component id="jDesktopPane1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jDesktopPane1" alignment="0" max="-2" attributes="0"/>
+          <Component id="jDesktopPane1" alignment="1" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -123,40 +122,45 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="numero" min="-2" pref="90" max="-2" attributes="0"/>
-                                      <Component id="distrito" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ciudad" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                                      <Component id="numero" alignment="1" min="-2" pref="90" max="-2" attributes="0"/>
+                                      <Component id="provincia" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ciudad" alignment="1" min="-2" pref="90" max="-2" attributes="0"/>
                                       <Component id="calle" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
-                                      <Component id="complemento" min="-2" max="-2" attributes="0"/>
+                                      <Component id="pais" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="distritoEntrada" alignment="0" min="-2" pref="244" max="-2" attributes="0"/>
-                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                      <Component id="compl" pref="244" max="32767" attributes="0"/>
-                                                      <Component id="jSeparator8" max="32767" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="jSeparator7" alignment="1" min="-2" pref="244" max="-2" attributes="0"/>
-                                                  <Component id="jSeparator6" alignment="0" min="-2" pref="244" max="-2" attributes="0"/>
-                                              </Group>
                                               <Group type="102" attributes="0">
-                                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                                  <Component id="cancelarRegistro" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                                  <Component id="Registrar" min="-2" pref="107" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                          <Component id="paisEntrada" pref="244" max="32767" attributes="0"/>
+                                                          <Component id="jSeparator8" max="32767" attributes="0"/>
+                                                      </Group>
+                                                      <Component id="jSeparator7" alignment="0" min="-2" pref="244" max="-2" attributes="0"/>
+                                                      <Component id="jSeparator6" alignment="0" min="-2" pref="244" max="-2" attributes="0"/>
+                                                      <Group type="102" attributes="0">
+                                                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                                          <Component id="cancelarRegistro" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                                          <Component id="Registrar" min="-2" pref="107" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Component id="numeroEntrada" min="-2" pref="228" max="-2" attributes="0"/>
+                                                      <Component id="jSeparator11" alignment="0" min="-2" pref="244" max="-2" attributes="0"/>
+                                                      <Component id="provinciaEntrada" alignment="0" min="-2" pref="244" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace min="-2" pref="448" max="-2" attributes="0"/>
+                                                  <Component id="complementoEntrada" min="-2" pref="244" max="-2" attributes="0"/>
                                               </Group>
-                                              <Component id="numeroEntrada" min="-2" pref="228" max="-2" attributes="0"/>
-                                              <Component id="jSeparator11" alignment="0" min="-2" pref="244" max="-2" attributes="0"/>
+                                              <Component id="jSeparator9" alignment="0" min="-2" pref="244" max="-2" attributes="0"/>
+                                              <Component id="calleEntrada" min="-2" pref="244" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace min="-2" pref="227" max="-2" attributes="0"/>
-                                          <Component id="complementoEntrada" min="-2" pref="244" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="ciudadEntrada" min="-2" pref="244" max="-2" attributes="0"/>
-                                      <Component id="jSeparator9" alignment="0" min="-2" pref="244" max="-2" attributes="0"/>
-                                      <Component id="calleEntrada" min="-2" pref="244" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="ciudadEntrada" min="-2" pref="244" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
@@ -196,9 +200,15 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jSeparator2" min="-2" pref="20" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="telefonoEntrada" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
-                              <Component id="telefono" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="telefonoEntrada" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                                  <Component id="telefono" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="ciudad" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -212,34 +222,19 @@
                           <Component id="jSeparator9" min="-2" pref="9" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="ciudadEntrada" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ciudad" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="numero" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="numeroEntrada" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jSeparator11" min="-2" pref="10" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="ciudadEntrada" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="numeroEntrada" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="numero" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jSeparator6" min="-2" pref="12" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jSeparator6" min="-2" pref="12" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                  <EmptySpace pref="24" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="distritoEntrada" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jSeparator7" min="-2" pref="12" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                          <Component id="compl" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="complementoEntrada" max="32767" attributes="0"/>
-                              <Component id="jSeparator8" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
                       <Group type="102" attributes="0">
                           <Component id="jSeparator5" min="-2" pref="12" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
@@ -251,10 +246,23 @@
                           <Component id="jSeparator4" min="-2" pref="10" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="distrito" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="complemento" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="provincia" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="provinciaEntrada" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="pais" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jSeparator7" min="-2" pref="12" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="paisEntrada" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="complementoEntrada" max="32767" attributes="0"/>
+                              <Component id="jSeparator8" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
@@ -262,7 +270,7 @@
                       <Component id="Registrar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="cancelarRegistro" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="50" max="32767" attributes="0"/>
+                  <EmptySpace pref="43" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -490,7 +498,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="distrito">
+        <Component class="javax.swing.JTextField" name="provincia">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -499,11 +507,14 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="distrito"/>
+            <Property name="text" type="java.lang.String" value="provincia"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="provinciaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="ciudad">
           <Properties>
@@ -535,7 +546,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="complemento">
+        <Component class="javax.swing.JTextField" name="pais">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -544,7 +555,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="complemento"/>
+            <Property name="text" type="java.lang.String" value="pais"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -576,7 +587,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="distritoEntrada">
+        <Component class="javax.swing.JTextField" name="provinciaEntrada">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="66" red="33" type="rgb"/>
@@ -655,7 +666,7 @@
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator11">
         </Component>
-        <Component class="javax.swing.JTextField" name="compl">
+        <Component class="javax.swing.JTextField" name="paisEntrada">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="66" red="33" type="rgb"/>

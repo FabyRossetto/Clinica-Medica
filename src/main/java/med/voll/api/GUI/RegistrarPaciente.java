@@ -41,13 +41,13 @@ public class RegistrarPaciente extends javax.swing.JDialog {
         dniEntrada = new javax.swing.JTextField();
         calleEntrada = new javax.swing.JTextField();
         calle = new javax.swing.JTextField();
-        distrito = new javax.swing.JTextField();
+        provincia = new javax.swing.JTextField();
         ciudad = new javax.swing.JTextField();
         numero = new javax.swing.JTextField();
-        complemento = new javax.swing.JTextField();
+        pais = new javax.swing.JTextField();
         numeroEntrada = new javax.swing.JTextField();
         ciudadEntrada = new javax.swing.JTextField();
-        distritoEntrada = new javax.swing.JTextField();
+        provinciaEntrada = new javax.swing.JTextField();
         complementoEntrada = new javax.swing.JTextField();
         Registrar = new javax.swing.JButton();
         cancelarRegistro = new javax.swing.JButton();
@@ -61,7 +61,7 @@ public class RegistrarPaciente extends javax.swing.JDialog {
         jSeparator8 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
         jSeparator11 = new javax.swing.JSeparator();
-        compl = new javax.swing.JTextField();
+        paisEntrada = new javax.swing.JTextField();
 
         button1.setLabel("button1");
 
@@ -181,11 +181,16 @@ public class RegistrarPaciente extends javax.swing.JDialog {
         calle.setText("calle");
         calle.setBorder(null);
 
-        distrito.setEditable(false);
-        distrito.setBackground(new java.awt.Color(51, 102, 255));
-        distrito.setForeground(new java.awt.Color(255, 255, 255));
-        distrito.setText("distrito");
-        distrito.setBorder(null);
+        provincia.setEditable(false);
+        provincia.setBackground(new java.awt.Color(51, 102, 255));
+        provincia.setForeground(new java.awt.Color(255, 255, 255));
+        provincia.setText("provincia");
+        provincia.setBorder(null);
+        provincia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                provinciaActionPerformed(evt);
+            }
+        });
 
         ciudad.setEditable(false);
         ciudad.setBackground(new java.awt.Color(51, 102, 255));
@@ -199,11 +204,11 @@ public class RegistrarPaciente extends javax.swing.JDialog {
         numero.setText("numero");
         numero.setBorder(null);
 
-        complemento.setEditable(false);
-        complemento.setBackground(new java.awt.Color(51, 102, 255));
-        complemento.setForeground(new java.awt.Color(255, 255, 255));
-        complemento.setText("complemento");
-        complemento.setBorder(null);
+        pais.setEditable(false);
+        pais.setBackground(new java.awt.Color(51, 102, 255));
+        pais.setForeground(new java.awt.Color(255, 255, 255));
+        pais.setText("pais");
+        pais.setBorder(null);
 
         numeroEntrada.setBackground(new java.awt.Color(51, 102, 255));
         numeroEntrada.setForeground(new java.awt.Color(204, 204, 204));
@@ -213,9 +218,9 @@ public class RegistrarPaciente extends javax.swing.JDialog {
         ciudadEntrada.setForeground(new java.awt.Color(204, 204, 204));
         ciudadEntrada.setBorder(null);
 
-        distritoEntrada.setBackground(new java.awt.Color(51, 102, 255));
-        distritoEntrada.setForeground(new java.awt.Color(204, 204, 204));
-        distritoEntrada.setBorder(null);
+        provinciaEntrada.setBackground(new java.awt.Color(51, 102, 255));
+        provinciaEntrada.setForeground(new java.awt.Color(204, 204, 204));
+        provinciaEntrada.setBorder(null);
 
         complementoEntrada.setBackground(new java.awt.Color(51, 102, 255));
         complementoEntrada.setForeground(new java.awt.Color(204, 204, 204));
@@ -233,9 +238,9 @@ public class RegistrarPaciente extends javax.swing.JDialog {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/med/voll/api/imagenes/image (3).png"))); // NOI18N
 
-        compl.setBackground(new java.awt.Color(51, 102, 255));
-        compl.setForeground(new java.awt.Color(255, 255, 255));
-        compl.setBorder(null);
+        paisEntrada.setBackground(new java.awt.Color(51, 102, 255));
+        paisEntrada.setForeground(new java.awt.Color(255, 255, 255));
+        paisEntrada.setBorder(null);
 
         jDesktopPane1.setLayer(jTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(nombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -249,13 +254,13 @@ public class RegistrarPaciente extends javax.swing.JDialog {
         jDesktopPane1.setLayer(dniEntrada, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(calleEntrada, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(calle, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(distrito, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(provincia, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(ciudad, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(numero, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(complemento, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(pais, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(numeroEntrada, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(ciudadEntrada, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(distritoEntrada, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(provinciaEntrada, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(complementoEntrada, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(Registrar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(cancelarRegistro, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -269,7 +274,7 @@ public class RegistrarPaciente extends javax.swing.JDialog {
         jDesktopPane1.setLayer(jSeparator8, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jSeparator9, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jSeparator11, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(compl, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(paisEntrada, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -316,34 +321,37 @@ public class RegistrarPaciente extends javax.swing.JDialog {
                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                                 .addGap(66, 66, 66)
                                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(distrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ciudad, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(numero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(provincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ciudad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(calle, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(complemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
+                                    .addComponent(pais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
                                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(distritoEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                    .addComponent(compl, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
-                                                    .addComponent(jSeparator8))
-                                                .addComponent(jSeparator7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                                .addGap(22, 22, 22)
-                                                .addComponent(cancelarRegistro)
-                                                .addGap(46, 46, 46)
-                                                .addComponent(Registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(numeroEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(227, 227, 227)
-                                        .addComponent(complementoEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(ciudadEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(calleEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addComponent(paisEntrada, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                                                        .addComponent(jSeparator8))
+                                                    .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                                        .addGap(22, 22, 22)
+                                                        .addComponent(cancelarRegistro)
+                                                        .addGap(46, 46, 46)
+                                                        .addComponent(Registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(numeroEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(provinciaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(448, 448, 448)
+                                                .addComponent(complementoEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(calleEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(ciudadEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
@@ -371,9 +379,13 @@ public class RegistrarPaciente extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(telefonoEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(telefonoEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                                .addComponent(ciudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(24, 24, 24))))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(57, 57, 57)
@@ -384,60 +396,59 @@ public class RegistrarPaciente extends javax.swing.JDialog {
                         .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ciudadEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ciudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(numeroEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(ciudadEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(numeroEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
+                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(distritoEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(documento, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(dniEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(provincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(provinciaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(41, 41, 41)
+                                .addComponent(pais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(13, 13, 13))))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1, 1, 1)
-                        .addComponent(compl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(paisEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(complementoEntrada)
-                            .addComponent(jSeparator8)))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(documento, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dniEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(distrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(complemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(13, 13, 13)))
+                            .addComponent(jSeparator8))))
                 .addGap(34, 34, 34)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Registrar)
                     .addComponent(cancelarRegistro))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 12, Short.MAX_VALUE)
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -471,6 +482,10 @@ public class RegistrarPaciente extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreEntradaActionPerformed
 
+    private void provinciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_provinciaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_provinciaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Registrar;
@@ -480,12 +495,8 @@ public class RegistrarPaciente extends javax.swing.JDialog {
     private javax.swing.JButton cancelarRegistro;
     private javax.swing.JTextField ciudad;
     private javax.swing.JTextField ciudadEntrada;
-    private javax.swing.JTextField compl;
-    private javax.swing.JTextField complemento;
     private javax.swing.JTextField complementoEntrada;
     private javax.swing.JTextField direccion;
-    private javax.swing.JTextField distrito;
-    private javax.swing.JTextField distritoEntrada;
     private javax.swing.JTextField dniEntrada;
     private javax.swing.JTextField documento;
     private javax.swing.JTextField email;
@@ -509,6 +520,10 @@ public class RegistrarPaciente extends javax.swing.JDialog {
     private javax.swing.JTextField nombreEntrada;
     private javax.swing.JTextField numero;
     private javax.swing.JTextField numeroEntrada;
+    private javax.swing.JTextField pais;
+    private javax.swing.JTextField paisEntrada;
+    private javax.swing.JTextField provincia;
+    private javax.swing.JTextField provinciaEntrada;
     private javax.swing.JTextField telefono;
     private javax.swing.JTextField telefonoEntrada;
     // End of variables declaration//GEN-END:variables
@@ -564,15 +579,15 @@ public class RegistrarPaciente extends javax.swing.JDialog {
             
 
             String callePaciente = calleEntrada.getText();
-            String distritoPaciente = numeroEntrada.getText();
+            String numeroPaciente = numeroEntrada.getText();
             String ciudadPaciente = ciudadEntrada.getText();
-            String numeroPaciente = distritoEntrada.getText();
-            String complementoPaciente = compl.getText();
+            String provinciaPaciente = provinciaEntrada.getText();
+            String paisPaciente = paisEntrada.getText();
 
             // Creando el JSON del médico
             String jsonMedico = String.format(
-                    "{\"nombre\":\"%s\",\"email\":\"%s\",\"telefono\":\"%s\",\"documento\":\"%s\",\"direccion\":{\"calle\":\"%s\",\"distrito\":\"%s\",\"ciudad\":\"%s\",\"numero\":\"%s\",\"complemento\":\"%s\"}}",
-                    nombrePaciente, emailPaciente, telefonoPaciente, dniPaciente,  callePaciente, distritoPaciente, ciudadPaciente, numeroPaciente, complementoPaciente
+                    "{\"nombre\":\"%s\",\"email\":\"%s\",\"telefono\":\"%s\",\"documento\":\"%s\",\"direccion\":{\"calle\":\"%s\",\"numero\":\"%s\",\"ciudad\":\"%s\",\"provincia\":\"%s\",\"pais\":\"%s\"}}",
+                    nombrePaciente, emailPaciente, telefonoPaciente, dniPaciente,  callePaciente, numeroPaciente, ciudadPaciente, provinciaPaciente, paisPaciente
             );
 
             //  solicitud HTTP

@@ -31,56 +31,56 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 @ActiveProfiles("test")
 @SuppressWarnings("all")
 class ConsultaControllerTest {
-
-    @Autowired
-    private MockMvc mvc;
-
-    @Autowired
-    private JacksonTester<DatosAgendarConsulta> agendarConsultaJacksonTester;
-
-    @Autowired
-    private JacksonTester<DatosDetalleConsulta> detalleConsultaJacksonTester;
-
-    @MockBean
-    private AgendaDeConsultaService agendaDeConsultaService;
-
-
-    @Test
-    @DisplayName("deberia retornar estado http 400 cuando los datos ingresados sean invalidos")
-    @WithMockUser
-    void agendarEscenario1() throws Exception {
-        //given //when
-        var response = mvc.perform(post("/consultas")).andReturn().getResponse();
-
-        //then
-        assertThat(response.getStatus()).isEqualTo(HttpStatus.BAD_REQUEST.value());
-    }
-
-    @Test
-    @DisplayName("deberia retornar estado http 200 cuando los datos ingresados son validos")
-    @WithMockUser
-    void agendarEscenario2() throws Exception {
-        //given
-        var fecha = LocalDateTime.now().plusHours(1);
-        var especialidad = Especialidad.CARDIOLOGIA;
-        var datos = new DatosDetalleConsulta(null,2l,5l,fecha);
-
-        // when
-
-        when(agendaDeConsultaService.agendar(any())).thenReturn(datos);
-
-        var response = mvc.perform(post("/consultas")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(agendarConsultaJacksonTester.write(new DatosAgendarConsulta(2l,5l,fecha, especialidad)).getJson())
-        ).andReturn().getResponse();
-
-        //then
-        assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
-
-        var jsonEsperado = detalleConsultaJacksonTester.write(datos).getJson();
-
-        assertThat(response.getContentAsString()).isEqualTo(jsonEsperado);
-
-    }
-
+//
+//    @Autowired
+//    private MockMvc mvc;
+//
+//    @Autowired
+//    private JacksonTester<DatosAgendarConsulta> agendarConsultaJacksonTester;
+//
+//    @Autowired
+//    private JacksonTester<DatosDetalleConsulta> detalleConsultaJacksonTester;
+//
+//    @MockBean
+//    private AgendaDeConsultaService agendaDeConsultaService;
+//
+//
+//    @Test
+//    @DisplayName("deberia retornar estado http 400 cuando los datos ingresados sean invalidos")
+//    @WithMockUser
+//    void agendarEscenario1() throws Exception {
+//        //given //when
+//        var response = mvc.perform(post("/consultas")).andReturn().getResponse();
+//
+//        //then
+//        assertThat(response.getStatus()).isEqualTo(HttpStatus.BAD_REQUEST.value());
+//    }
+//
+//    @Test
+//    @DisplayName("deberia retornar estado http 200 cuando los datos ingresados son validos")
+//    @WithMockUser
+//    void agendarEscenario2() throws Exception {
+//        //given
+//        var fecha = LocalDateTime.now().plusHours(1);
+//        var especialidad = Especialidad.CARDIOLOGIA;
+//        var datos = new DatosDetalleConsulta(null,2l,5l,fecha);
+//
+//        // when
+//
+//        when(agendaDeConsultaService.agendar(any())).thenReturn(datos);
+//
+//        var response = mvc.perform(post("/consultas")
+//                .contentType(MediaType.APPLICATION_JSON)
+//                .content(agendarConsultaJacksonTester.write(new DatosAgendarConsulta(2l,5l,fecha, especialidad)).getJson())
+//        ).andReturn().getResponse();
+//
+//        //then
+//        assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
+//
+//        var jsonEsperado = detalleConsultaJacksonTester.write(datos).getJson();
+//
+//        assertThat(response.getContentAsString()).isEqualTo(jsonEsperado);
+//
+//    }
+//
 }

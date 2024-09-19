@@ -1,15 +1,13 @@
-DELETE FROM `clinica_api`.`medicos`;
+-- Eliminar datos de medicos
+DELETE FROM medicos;
 
+-- Insertar datos en medicos
+INSERT INTO medicos (id, activo, calle, ciudad, numero, pais, provincia, documento, email, especialidad, nombre, telefono)
+VALUES
+(1, TRUE, 'b', 'b', 'b', 'b', 'b', '121212', 'aa@mail.com', 'ORTOPEDIA', 'antonio', '123456'),
+(2, TRUE, 'b', 'b', 'b', 'b', 'b', '212121', 'bb@mail.com', 'ORTOPEDIA', 'bernardo', '123456'),
+(3, FALSE, 'b', 'b', 'b', 'b', 'b', '232323', 'cc@mail.com', 'CARDIOLOGIA', 'carlos', '123456'),
+(4, TRUE, 'b', 'b', 'b', 'b', 'b', '323232', 'dd@mail.com', 'CARDIOLOGIA', 'diego', 'b'),
+(5, TRUE, 'b', 'b', 'b', 'b', 'b', '343434', 'ee@mail.com', 'GINECOLOGIA', 'eduardo', 'b'),
+(6, TRUE, 'b', 'b', 'b', 'b', 'b', '434343', 'ff@mail.com', 'PEDIATRIA', 'fernando', 'b');
 
-INSERT INTO `clinica_api`.`medicos` (`id`, `nombre`, `email`, `documento`, `especialidad`, `calle`, `distrito`, `complemento`, `numero`, `ciudad`, `telefono`, `activo`)
-VALUES ('1', 'antonio', 'aa@mail.com', '121212', 'ORTOPEDIA', 'b', 'b', 'b', 'b', 'b', 'b', '1');
-INSERT INTO `clinica_api`.`medicos` (`id`, `nombre`, `email`, `documento`, `especialidad`, `calle`, `distrito`, `complemento`, `numero`, `ciudad`, `telefono`, `activo`)
-VALUES ('2', 'bernardo', 'bb@mail.com', '212121', 'ORTOPEDIA', 'b', 'b', 'b', 'b', 'b', 'b', '1');
-INSERT INTO `clinica_api`.`medicos` (`id`, `nombre`, `email`, `documento`, `especialidad`, `calle`, `distrito`, `complemento`, `numero`, `ciudad`, `telefono`, `activo`)
-VALUES ('3', 'carlos', 'cc@mail.com', '232323', 'CARDIOLOGIA', 'b', 'b', 'b', 'b', 'b', 'b', '0');
-INSERT INTO `clinica_api`.`medicos` (`id`, `nombre`, `email`, `documento`, `especialidad`, `calle`, `distrito`, `complemento`, `numero`, `ciudad`, `telefono`, `activo`)
-VALUES ('4', 'diego', 'dd@mail.com', '323232', 'CARDIOLOGIA', 'b', 'b', 'b', 'b', 'b', 'b', '1');
-INSERT INTO `clinica_api`.`medicos` (`id`, `nombre`, `email`, `documento`, `especialidad`, `calle`, `distrito`, `complemento`, `numero`, `ciudad`, `telefono`, `activo`)
-VALUES ('5', 'eduardo', 'ee@mail.com', '343434', 'GINECOLOGIA', 'b', 'b', 'b', 'b', 'b', 'b', '1');
-INSERT INTO `clinica_api`.`medicos` (`id`, `nombre`, `email`, `documento`, `especialidad`, `calle`, `distrito`, `complemento`, `numero`, `ciudad`, `telefono`, `activo`)
-VALUES ('6', 'fernando', 'ff@mail.com', '434343', 'PEDIATRIA', 'b', 'b', 'b', 'b', 'b', 'b', '1');

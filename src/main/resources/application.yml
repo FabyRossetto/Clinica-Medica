@@ -1,29 +1,181 @@
 spring:
   profiles:
-    active: dev, test, prod
+    active: dev
+
   datasource:
-    url: jdbc:mysql://localhost:3306/clinica_api
-    username: root
-    password: root
+    url: jdbc:h2:file:D:/Documents/NetBeansProjects/Spring-Boot-5-testing/data/clinica;
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+
   jpa:
+    hibernate:
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
         format_sql: true
-        
+
   flyway:
     enabled: true
-    url: jdbc:mysql://localhost:3306/clinica_api
-    user: root
-    password: root
+    url: jdbc:h2:file:D:/Documents/NetBeansProjects/Spring-Boot-5-testing/data/clinica
+    user: sa
+    password:
+    out-of-order: true
 
-server:
-  error:
-    include-stacktrace: never
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
 
-api:
-  security:
-    secret: ${JWT_SECRET:123456}
+  server:
+    port: 8080
+
+#---
+#spring:
+#  config:
+#    activate:
+#      on-profile: test
+#
+#  datasource:
+#    url: jdbc:h2:mem:testdb;DB_CLOSE_ON_EXIT=FALSE
+#    driver-class-name: org.h2.Driver
+#    username: sa
+#    password: 
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: create-drop
+#    show-sql: true
+#
+#  flyway:
+#    enabled: false
+
+#spring:
+#  config:
+#    activate:
+#      on-profile: dev
+#
+#  # Configuración para todos los perfiles
+#  datasource:
+#    driver-class-name: org.h2.Driver
+#    username: sa
+#    password: 
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+#
+#  flyway:
+#    enabled: true
+#
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2-console
+#
+#  server:
+#    port: 8080
+#    error:
+#      include-stacktrace: never
+#
+#  api:
+#    security:
+#      secret: ${JWT_SECRET:tusecretojwt}
+#
+#  logging:
+#    level:
+#      org.springframework.jdbc: DEBUG
+#      hibernate.SQL: DEBUG
+#
+#---
+#spring:
+#  config:
+#    activate:
+#      on-profile: dev
+#
+#  datasource:
+#    url: jdbc:h2:file:./data/clinica;DB_CLOSE_ON_EXIT=FALSE;AUTO_SERVER=TRUE;MODE=MySQL
+#
+#  flyway:
+#    url: jdbc:h2:file:./data/clinica
+#    user: sa
+#    password:
+#
+#---
+#spring:
+#  config:
+#    activate:
+#      on-profile: test
+#
+#  datasource:
+#    url: jdbc:h2:mem:testdb;DB_CLOSE_ON_EXIT=FALSE
+#    driver-class-name: org.h2.Driver
+#    username: sa
+#    password: password
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: create-drop
+#    show-sql: true
+#
+#  flyway:
+#    enabled: false
+
+#---
+#spring:
+#  config:
+#    activate:
+#      on-profile: prod
+#
+#  datasource:
+#    url: jdbc:h2:file:./data/clinica_prod;DB_CLOSE_ON_EXIT=FALSE;AUTO_SERVER=TRUE
+#    driver-class-name: org.h2.Driver
+#    username: sa
+#    password:
+#
+#  jpa:
+#    show-sql: false
+#    hibernate:
+#      ddl-auto: update
+#
+#  flyway:
+#    url: jdbc:h2:file:./data/clinica_prod
+#    user: sa
+#    password:
+#
+
+
+#spring:
+#  profiles:
+#    active: dev, test, prod
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/clinica_api
+#    username: root
+#    password: root
+#  jpa:
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+#        
+#  flyway:
+#    enabled: true
+#    url: jdbc:mysql://localhost:3306/clinica_api
+#    user: root
+#    password: root
+#
+#server:
+#  error:
+#    include-stacktrace: never
+#
+#api:
+#  security:
+#    secret: ${JWT_SECRET:123456}
 
 
 

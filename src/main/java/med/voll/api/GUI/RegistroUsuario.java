@@ -14,17 +14,23 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import med.voll.api.infra.security.LoginResponse;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  *
  * @author Faby
  */
 public class RegistroUsuario extends javax.swing.JFrame {
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -291,7 +297,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
                 String json = "{\"login\":\"" + username + "\",\"clave\":\"" + password + "\"}";
 
                 // Enviar solicitud al backend para registrar el usuario
-                URL url = new URL("http://localhost:8080/usuarios/registro");
+                URL url = new URL("http://localhost:8080/usuarios");
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("POST");
                 conn.setRequestProperty("Content-Type", "application/json; utf-8");
@@ -306,7 +312,8 @@ public class RegistroUsuario extends javax.swing.JFrame {
                 int responseCode = conn.getResponseCode();
                 if (responseCode == HttpURLConnection.HTTP_CREATED) {
                     mostrarMensaje("Usuario registrado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                    
+                    // Guardar en la base de datos local
+                      //  guardarEnBaseDeDatos(username, password);
                     // Redirigir al login
                     SwingUtilities.invokeLater(() -> {
                         Login loginWindow = new Login();
@@ -326,6 +333,26 @@ public class RegistroUsuario extends javax.swing.JFrame {
         }
     });
 }
+    private void guardarEnBaseDeDatos(String username, String password) {
+        
+        String url = "jdbc:h2:file:./data/clinica";
+        String user = "sa";
+        String pass = "";
+
+        try (Connection connection = DriverManager.getConnection(url, user, pass)) {
+            String sql = "INSERT INTO usuarios (login, clave) VALUES (?, ?)";
+            try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                statement.setString(1, username);
+                statement.setString(2, password);
+                statement.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            mostrarMensaje("Error al guardar usuario en la base de datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+   
 
 
     private void mostrarMensaje(String mensaje, String titulo, int messageType) {

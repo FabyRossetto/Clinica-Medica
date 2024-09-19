@@ -4,42 +4,52 @@
  */
 package med.voll.api.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import java.net.URI;
 import med.voll.api.domain.usuarios.Usuario;
 import med.voll.api.domain.usuarios.UsuarioRepository;
+import org.hibernate.resource.transaction.spi.TransactionStatus;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/usuarios")
 public class UserController {
-    
 
+    @Autowired
+    private UsuarioRepository usuarioRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
+    @PostMapping
+    @Transactional // Asegura que la transacción sea manejada correctamente
+    public ResponseEntity<Usuario> registrar(@RequestBody Usuario user, UriComponentsBuilder uriComponentsBuilder) {
+        // Codificar la contraseña con BCrypt
+        user.setClave(passwordEncoder.encode(user.getClave()));
 
-    private final UsuarioRepository usuarioRepository;
-    private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+// Guardar el usuario en la base de datos
+        Usuario usuario = usuarioRepository.save(user);
+        System.out.println("Usuario guardado con ID: " + usuario.getId());
 
-    public UserController(UsuarioRepository usuarioRepository) {
-        this.usuarioRepository = usuarioRepository;
-    }
-
-    @PostMapping("/registro")
-    public ResponseEntity<?> registerUser(@RequestBody Usuario usuario) {
-        // Verifica si el usuario ya existe utilizando findByLogin
-        if (usuarioRepository.findByLogin(usuario.getUsername()) != null) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("El nombre de usuario ya existe");
+        // Confirmar la transacción explícitamente (opcional)
+        // Esto solo es necesario si hay algún error de configuración transaccional
+        org.springframework.transaction.TransactionStatus status = TransactionAspectSupport.currentTransactionStatus();
+        if (status.isRollbackOnly()) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
 
-        // Encriptar la contraseña antes de guardarla en la base de datos
-        usuario.setClave(passwordEncoder.encode(usuario.getPassword()));
-        
-        usuarioRepository.save(usuario);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Usuario registrado exitosamente");
+        // Retornar la URI del usuario creado
+        URI url = uriComponentsBuilder.path("/usuarios/{id}").buildAndExpand(usuario.getId()).toUri();
+        return ResponseEntity.created(url).body(usuario);
     }
 }
-
-

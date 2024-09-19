@@ -5,6 +5,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import jakarta.annotation.PostConstruct;
 import med.voll.api.domain.usuarios.Usuario;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -16,19 +17,23 @@ import java.time.ZoneOffset;
 @Service
 public class TokenService {
 
-    @Value("${api.security.secret}")
-    private String apiSecret;
+    private static final String STATIC_API_SECRET = "miClaveEstatica";
+
+    @PostConstruct
+    public void init() {
+        System.out.println("apiSecret: " + STATIC_API_SECRET);
+    }
 
     public String generarToken(Usuario usuario) {
         try {
-            Algorithm algorithm = Algorithm.HMAC256(apiSecret);
+            Algorithm algorithm = Algorithm.HMAC256(STATIC_API_SECRET);
             return JWT.create()
                     .withIssuer("voll med")
                     .withSubject(usuario.getLogin())
                     .withClaim("id", usuario.getId())
                     .withExpiresAt(generarFechaExpiracion())
                     .sign(algorithm);
-        } catch (JWTCreationException exception){
+        } catch (JWTCreationException exception) {
             throw new RuntimeException();
         }
     }
@@ -39,7 +44,7 @@ public class TokenService {
         }
         DecodedJWT verifier = null;
         try {
-            Algorithm algorithm = Algorithm.HMAC256(apiSecret); // validando firma
+            Algorithm algorithm = Algorithm.HMAC256(STATIC_API_SECRET); // validando firma
             verifier = JWT.require(algorithm)
                     .withIssuer("voll med")
                     .build()

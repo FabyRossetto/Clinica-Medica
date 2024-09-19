@@ -45,12 +45,12 @@ public class RegistrarMedico extends javax.swing.JDialog {
         telefonoEntrada = new javax.swing.JTextField();
         calleEntrada = new javax.swing.JTextField();
         calle = new javax.swing.JTextField();
-        distrito = new javax.swing.JTextField();
         ciudad = new javax.swing.JTextField();
+        provincia = new javax.swing.JTextField();
         numero = new javax.swing.JTextField();
-        complemento = new javax.swing.JTextField();
+        pais = new javax.swing.JTextField();
+        provinciaEntrada = new javax.swing.JTextField();
         ciudadEntrada = new javax.swing.JTextField();
-        distritoEntrada = new javax.swing.JTextField();
         complementoEntrada = new javax.swing.JTextField();
         Registrar = new javax.swing.JButton();
         cancelarRegistro = new javax.swing.JButton();
@@ -71,7 +71,7 @@ public class RegistrarMedico extends javax.swing.JDialog {
         Registrar1 = new javax.swing.JButton();
         docuEntrda = new javax.swing.JTextField();
         numEntrada = new javax.swing.JTextField();
-        comp = new javax.swing.JTextField();
+        paisEntrada = new javax.swing.JTextField();
 
         button1.setLabel("button1");
 
@@ -198,22 +198,22 @@ public class RegistrarMedico extends javax.swing.JDialog {
         calle.setText("calle");
         calle.setBorder(null);
 
-        distrito.setEditable(false);
-        distrito.setBackground(new java.awt.Color(51, 102, 255));
-        distrito.setForeground(new java.awt.Color(255, 255, 255));
-        distrito.setText("distrito");
-        distrito.setBorder(null);
-        distrito.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                distritoActionPerformed(evt);
-            }
-        });
-
         ciudad.setEditable(false);
         ciudad.setBackground(new java.awt.Color(51, 102, 255));
         ciudad.setForeground(new java.awt.Color(255, 255, 255));
         ciudad.setText("ciudad");
         ciudad.setBorder(null);
+        ciudad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ciudadActionPerformed(evt);
+            }
+        });
+
+        provincia.setEditable(false);
+        provincia.setBackground(new java.awt.Color(51, 102, 255));
+        provincia.setForeground(new java.awt.Color(255, 255, 255));
+        provincia.setText("provincia");
+        provincia.setBorder(null);
 
         numero.setEditable(false);
         numero.setBackground(new java.awt.Color(51, 102, 255));
@@ -226,24 +226,24 @@ public class RegistrarMedico extends javax.swing.JDialog {
             }
         });
 
-        complemento.setEditable(false);
-        complemento.setBackground(new java.awt.Color(51, 102, 255));
-        complemento.setForeground(new java.awt.Color(255, 255, 255));
-        complemento.setText("complemento");
-        complemento.setBorder(null);
-        complemento.addActionListener(new java.awt.event.ActionListener() {
+        pais.setEditable(false);
+        pais.setBackground(new java.awt.Color(51, 102, 255));
+        pais.setForeground(new java.awt.Color(255, 255, 255));
+        pais.setText("pais");
+        pais.setBorder(null);
+        pais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                complementoActionPerformed(evt);
+                paisActionPerformed(evt);
             }
         });
+
+        provinciaEntrada.setBackground(new java.awt.Color(51, 102, 255));
+        provinciaEntrada.setForeground(new java.awt.Color(204, 204, 204));
+        provinciaEntrada.setBorder(null);
 
         ciudadEntrada.setBackground(new java.awt.Color(51, 102, 255));
         ciudadEntrada.setForeground(new java.awt.Color(204, 204, 204));
         ciudadEntrada.setBorder(null);
-
-        distritoEntrada.setBackground(new java.awt.Color(51, 102, 255));
-        distritoEntrada.setForeground(new java.awt.Color(204, 204, 204));
-        distritoEntrada.setBorder(null);
 
         complementoEntrada.setBackground(new java.awt.Color(51, 102, 255));
         complementoEntrada.setForeground(new java.awt.Color(204, 204, 204));
@@ -300,9 +300,9 @@ public class RegistrarMedico extends javax.swing.JDialog {
         numEntrada.setForeground(new java.awt.Color(255, 255, 255));
         numEntrada.setBorder(null);
 
-        comp.setBackground(new java.awt.Color(51, 102, 255));
-        comp.setForeground(new java.awt.Color(255, 255, 255));
-        comp.setBorder(null);
+        paisEntrada.setBackground(new java.awt.Color(51, 102, 255));
+        paisEntrada.setForeground(new java.awt.Color(255, 255, 255));
+        paisEntrada.setBorder(null);
 
         docuEntrada.setLayer(jTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         docuEntrada.setLayer(nombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -316,12 +316,12 @@ public class RegistrarMedico extends javax.swing.JDialog {
         docuEntrada.setLayer(telefonoEntrada, javax.swing.JLayeredPane.DEFAULT_LAYER);
         docuEntrada.setLayer(calleEntrada, javax.swing.JLayeredPane.DEFAULT_LAYER);
         docuEntrada.setLayer(calle, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        docuEntrada.setLayer(distrito, javax.swing.JLayeredPane.DEFAULT_LAYER);
         docuEntrada.setLayer(ciudad, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        docuEntrada.setLayer(provincia, javax.swing.JLayeredPane.DEFAULT_LAYER);
         docuEntrada.setLayer(numero, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        docuEntrada.setLayer(complemento, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        docuEntrada.setLayer(pais, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        docuEntrada.setLayer(provinciaEntrada, javax.swing.JLayeredPane.DEFAULT_LAYER);
         docuEntrada.setLayer(ciudadEntrada, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        docuEntrada.setLayer(distritoEntrada, javax.swing.JLayeredPane.DEFAULT_LAYER);
         docuEntrada.setLayer(complementoEntrada, javax.swing.JLayeredPane.DEFAULT_LAYER);
         docuEntrada.setLayer(Registrar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         docuEntrada.setLayer(cancelarRegistro, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -342,7 +342,7 @@ public class RegistrarMedico extends javax.swing.JDialog {
         docuEntrada.setLayer(Registrar1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         docuEntrada.setLayer(docuEntrda, javax.swing.JLayeredPane.DEFAULT_LAYER);
         docuEntrada.setLayer(numEntrada, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        docuEntrada.setLayer(comp, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        docuEntrada.setLayer(paisEntrada, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout docuEntradaLayout = new javax.swing.GroupLayout(docuEntrada);
         docuEntrada.setLayout(docuEntradaLayout);
@@ -362,12 +362,12 @@ public class RegistrarMedico extends javax.swing.JDialog {
                                                 .addGap(207, 207, 207)
                                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(numero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(distrito, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(ciudad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, docuEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(complemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(ciudad, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(pais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(provincia, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ciudadEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(provinciaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(docuEntradaLayout.createSequentialGroup()
                                 .addGap(22, 22, 22)
                                 .addGroup(docuEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -400,7 +400,7 @@ public class RegistrarMedico extends javax.swing.JDialog {
                                             .addGroup(docuEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(docuEntradaLayout.createSequentialGroup()
                                                     .addGap(6, 6, 6)
-                                                    .addComponent(comp, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(paisEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGroup(docuEntradaLayout.createSequentialGroup()
                                         .addGap(199, 199, 199)
@@ -410,7 +410,7 @@ public class RegistrarMedico extends javax.swing.JDialog {
                                         .addComponent(calle, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(docuEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(distritoEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ciudadEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(docuEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                 .addComponent(jSeparator15, javax.swing.GroupLayout.Alignment.TRAILING)
                                                 .addComponent(jSeparator9, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -489,12 +489,10 @@ public class RegistrarMedico extends javax.swing.JDialog {
                         .addGroup(docuEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(docuEntradaLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(docuEntradaLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGroup(docuEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(docuEntradaLayout.createSequentialGroup()
                         .addGap(44, 44, 44)
@@ -506,14 +504,14 @@ public class RegistrarMedico extends javax.swing.JDialog {
                         .addGroup(docuEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(docuEntradaLayout.createSequentialGroup()
                                 .addGroup(docuEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(ciudadEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ciudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(provinciaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(provincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(docuEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(complemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(comp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(pais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(paisEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(31, 31, 31))
@@ -525,12 +523,11 @@ public class RegistrarMedico extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(60, 60, 60)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(docuEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(distrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(distritoEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(ciudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ciudadEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 1, Short.MAX_VALUE)
                 .addGroup(docuEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(docuEntradaLayout.createSequentialGroup()
                         .addGap(59, 59, 59)
@@ -604,17 +601,17 @@ public class RegistrarMedico extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
-    private void complementoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complementoActionPerformed
+    private void paisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paisActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_complementoActionPerformed
+    }//GEN-LAST:event_paisActionPerformed
 
     private void numeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_numeroActionPerformed
 
-    private void distritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_distritoActionPerformed
+    private void ciudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ciudadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_distritoActionPerformed
+    }//GEN-LAST:event_ciudadActionPerformed
 
     private void calleEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calleEntradaActionPerformed
         // TODO add your handling code here:
@@ -630,12 +627,8 @@ public class RegistrarMedico extends javax.swing.JDialog {
     private javax.swing.JButton cancelarRegistro;
     private javax.swing.JTextField ciudad;
     private javax.swing.JTextField ciudadEntrada;
-    private javax.swing.JTextField comp;
-    private javax.swing.JTextField complemento;
     private javax.swing.JTextField complementoEntrada;
     private javax.swing.JTextField direccion;
-    private javax.swing.JTextField distrito;
-    private javax.swing.JTextField distritoEntrada;
     private javax.swing.JDesktopPane docuEntrada;
     private javax.swing.JTextField docuEntrda;
     private javax.swing.JTextField documento;
@@ -668,6 +661,10 @@ public class RegistrarMedico extends javax.swing.JDialog {
     private javax.swing.JTextField nombreEntrada;
     private javax.swing.JTextField numEntrada;
     private javax.swing.JTextField numero;
+    private javax.swing.JTextField pais;
+    private javax.swing.JTextField paisEntrada;
+    private javax.swing.JTextField provincia;
+    private javax.swing.JTextField provinciaEntrada;
     private javax.swing.JTextField telefono;
     private javax.swing.JTextField telefonoEntrada;
     // End of variables declaration//GEN-END:variables
@@ -736,15 +733,15 @@ public class RegistrarMedico extends javax.swing.JDialog {
             }
 
             String calleMedico = calleEntrada.getText();
-            String distritoMedico = numEntrada.getText();
+            String numeroMedico = numEntrada.getText();
             String ciudadMedico = ciudadEntrada.getText();
-            String numeroMedico = distritoEntrada.getText();
-            String complementoMedico = comp.getText();
+            String provinciaMedico = provinciaEntrada.getText();
+            String paisMedico = paisEntrada.getText();
 
             // Creando el JSON del médico
             String jsonMedico = String.format(
-                    "{\"nombre\":\"%s\",\"email\":\"%s\",\"telefono\":\"%s\",\"documento\":\"%s\",\"especialidad\":\"%s\",\"direccion\":{\"calle\":\"%s\",\"distrito\":\"%s\",\"ciudad\":\"%s\",\"numero\":\"%s\",\"complemento\":\"%s\"}}",
-                    nombreMedico, emailMedico, telefonoMedico, dniMedico, especialidadMedico, calleMedico, distritoMedico, ciudadMedico, numeroMedico, complementoMedico
+                    "{\"nombre\":\"%s\",\"email\":\"%s\",\"telefono\":\"%s\",\"documento\":\"%s\",\"especialidad\":\"%s\",\"direccion\":{\"calle\":\"%s\",\"numero\":\"%s\",\"ciudad\":\"%s\",\"provincia\":\"%s\",\"pais\":\"%s\"}}",
+                    nombreMedico, emailMedico, telefonoMedico, dniMedico, especialidadMedico, calleMedico, numeroMedico, ciudadMedico, provinciaMedico, paisMedico
             );
 
             //  solicitud HTTP

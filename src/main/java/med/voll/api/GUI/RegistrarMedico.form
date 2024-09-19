@@ -100,15 +100,15 @@
                                               </Group>
                                               <Component id="numero" alignment="1" min="-2" pref="90" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="distrito" alignment="1" min="-2" pref="90" max="-2" attributes="0"/>
+                                          <Component id="ciudad" alignment="1" min="-2" pref="90" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                          <Component id="complemento" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ciudad" min="-2" pref="90" max="-2" attributes="0"/>
+                                          <Component id="pais" min="-2" max="-2" attributes="0"/>
+                                          <Component id="provincia" min="-2" pref="90" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="ciudadEntrada" min="-2" pref="110" max="-2" attributes="0"/>
+                                  <Component id="provinciaEntrada" min="-2" pref="110" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
@@ -148,7 +148,7 @@
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" attributes="0">
                                                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                                      <Component id="comp" min="-2" pref="128" max="-2" attributes="0"/>
+                                                      <Component id="paisEntrada" min="-2" pref="128" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Component id="jSeparator6" min="-2" pref="134" max="-2" attributes="0"/>
                                               </Group>
@@ -163,7 +163,7 @@
                                           <Component id="calle" min="-2" pref="90" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="distritoEntrada" min="-2" pref="134" max="-2" attributes="0"/>
+                                              <Component id="ciudadEntrada" min="-2" pref="134" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                   <Component id="jSeparator15" alignment="1" max="32767" attributes="0"/>
                                                   <Component id="jSeparator9" alignment="1" max="32767" attributes="0"/>
@@ -271,12 +271,10 @@
                               <Group type="102" attributes="0">
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="jSeparator9" min="-2" pref="19" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jSeparator2" min="-2" pref="18" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -293,15 +291,15 @@
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="ciudadEntrada" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ciudad" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="provinciaEntrada" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="provincia" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jSeparator6" min="-2" pref="16" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="complemento" min="-2" max="-2" attributes="0"/>
-                                      <Component id="comp" min="-2" max="-2" attributes="0"/>
+                                      <Component id="pais" min="-2" max="-2" attributes="0"/>
+                                      <Component id="paisEntrada" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jSeparator8" min="-2" pref="18" max="-2" attributes="0"/>
@@ -318,15 +316,14 @@
                                   <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jSeparator5" min="-2" pref="12" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="distrito" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="distritoEntrada" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ciudad" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ciudadEntrada" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
@@ -583,24 +580,6 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="distrito">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="66" red="33" type="rgb"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="distrito"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="distritoActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JTextField" name="ciudad">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
@@ -611,6 +590,24 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="ciudad"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ciudadActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="provincia">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="66" red="33" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="provincia"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -634,7 +631,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="numeroActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="complemento">
+        <Component class="javax.swing.JTextField" name="pais">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -643,16 +640,16 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="complemento"/>
+            <Property name="text" type="java.lang.String" value="pais"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="complementoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="paisActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="ciudadEntrada">
+        <Component class="javax.swing.JTextField" name="provinciaEntrada">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="66" red="33" type="rgb"/>
@@ -665,7 +662,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="distritoEntrada">
+        <Component class="javax.swing.JTextField" name="ciudadEntrada">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="66" red="33" type="rgb"/>
@@ -834,7 +831,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="comp">
+        <Component class="javax.swing.JTextField" name="paisEntrada">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="66" red="33" type="rgb"/>

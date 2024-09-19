@@ -45,12 +45,12 @@ public class ActualizarMedico extends javax.swing.JDialog {
         ciudad = new javax.swing.JTextField();
         textCalle = new javax.swing.JTextField();
         calle = new javax.swing.JTextField();
-        textDistrito = new javax.swing.JTextField();
+        textProvincia = new javax.swing.JTextField();
         textNumero = new javax.swing.JTextField();
-        textComplemento = new javax.swing.JTextField();
-        distrito = new javax.swing.JTextField();
+        textPais = new javax.swing.JTextField();
+        provincia = new javax.swing.JTextField();
         numero = new javax.swing.JTextField();
-        complemento = new javax.swing.JTextField();
+        pais = new javax.swing.JTextField();
         cancelar = new javax.swing.JButton();
         actualizar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -140,11 +140,11 @@ public class ActualizarMedico extends javax.swing.JDialog {
         calle.setForeground(new java.awt.Color(204, 204, 204));
         calle.setBorder(null);
 
-        textDistrito.setEditable(false);
-        textDistrito.setBackground(new java.awt.Color(51, 102, 255));
-        textDistrito.setForeground(new java.awt.Color(255, 255, 255));
-        textDistrito.setText("distrito");
-        textDistrito.setBorder(null);
+        textProvincia.setEditable(false);
+        textProvincia.setBackground(new java.awt.Color(51, 102, 255));
+        textProvincia.setForeground(new java.awt.Color(255, 255, 255));
+        textProvincia.setText("provincia");
+        textProvincia.setBorder(null);
 
         textNumero.setEditable(false);
         textNumero.setBackground(new java.awt.Color(51, 102, 255));
@@ -152,23 +152,23 @@ public class ActualizarMedico extends javax.swing.JDialog {
         textNumero.setText("numero");
         textNumero.setBorder(null);
 
-        textComplemento.setEditable(false);
-        textComplemento.setBackground(new java.awt.Color(51, 102, 255));
-        textComplemento.setForeground(new java.awt.Color(255, 255, 255));
-        textComplemento.setText("complemento");
-        textComplemento.setBorder(null);
+        textPais.setEditable(false);
+        textPais.setBackground(new java.awt.Color(51, 102, 255));
+        textPais.setForeground(new java.awt.Color(255, 255, 255));
+        textPais.setText("pais");
+        textPais.setBorder(null);
 
-        distrito.setBackground(new java.awt.Color(51, 102, 255));
-        distrito.setForeground(new java.awt.Color(204, 204, 204));
-        distrito.setBorder(null);
+        provincia.setBackground(new java.awt.Color(51, 102, 255));
+        provincia.setForeground(new java.awt.Color(204, 204, 204));
+        provincia.setBorder(null);
 
         numero.setBackground(new java.awt.Color(51, 102, 255));
         numero.setForeground(new java.awt.Color(204, 204, 204));
         numero.setBorder(null);
 
-        complemento.setBackground(new java.awt.Color(51, 102, 255));
-        complemento.setForeground(new java.awt.Color(204, 204, 204));
-        complemento.setBorder(null);
+        pais.setBackground(new java.awt.Color(51, 102, 255));
+        pais.setForeground(new java.awt.Color(204, 204, 204));
+        pais.setBorder(null);
 
         cancelar.setBackground(new java.awt.Color(255, 51, 0));
         cancelar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -199,12 +199,12 @@ public class ActualizarMedico extends javax.swing.JDialog {
         jDesktopPane1.setLayer(ciudad, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(textCalle, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(calle, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(textDistrito, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(textProvincia, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(textNumero, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(textComplemento, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(distrito, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(textPais, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(provincia, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(numero, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(complemento, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(pais, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(cancelar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(actualizar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -238,9 +238,7 @@ public class ActualizarMedico extends javax.swing.JDialog {
                                     .addComponent(docuMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGap(520, 520, 520)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(textPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(258, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -250,7 +248,6 @@ public class ActualizarMedico extends javax.swing.JDialog {
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(calle, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(distrito, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ciudad, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
@@ -258,17 +255,18 @@ public class ActualizarMedico extends javax.swing.JDialog {
                                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(provincia, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(complemento, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pais, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                                         .addGap(6, 6, 6)
                                         .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(actualizar)))
+                                .addComponent(actualizar))
+                            .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(31, 31, 31))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -287,8 +285,9 @@ public class ActualizarMedico extends javax.swing.JDialog {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(textCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textDistrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textCalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textCalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(493, 493, 493))
         );
         jDesktopPane1Layout.setVerticalGroup(
@@ -330,8 +329,8 @@ public class ActualizarMedico extends javax.swing.JDialog {
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textDistrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(distrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
@@ -341,18 +340,17 @@ public class ActualizarMedico extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(provincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(textComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(complemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(textPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
@@ -397,8 +395,6 @@ public class ActualizarMedico extends javax.swing.JDialog {
     private javax.swing.JTextField calle;
     private javax.swing.JButton cancelar;
     private javax.swing.JTextField ciudad;
-    private javax.swing.JTextField complemento;
-    private javax.swing.JTextField distrito;
     private javax.swing.JTextField docuMedico;
     private javax.swing.JTextField idMedico;
     private javax.swing.JDesktopPane jDesktopPane1;
@@ -417,15 +413,17 @@ public class ActualizarMedico extends javax.swing.JDialog {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField nombreMedico;
     private javax.swing.JTextField numero;
+    private javax.swing.JTextField pais;
+    private javax.swing.JTextField provincia;
     private javax.swing.JTextField textCalle;
     private javax.swing.JTextField textCiudad;
-    private javax.swing.JTextField textComplemento;
     private javax.swing.JTextField textDireccion;
-    private javax.swing.JTextField textDistrito;
     private javax.swing.JTextField textDoc;
     private javax.swing.JTextField textId;
     private javax.swing.JTextField textName;
     private javax.swing.JTextField textNumero;
+    private javax.swing.JTextField textPais;
+    private javax.swing.JTextField textProvincia;
     // End of variables declaration//GEN-END:variables
 private String token;
 
@@ -470,15 +468,15 @@ private String token;
             String docuDelMedico = docuMedico.getText();
 
             String calleMedico = calle.getText();
-            String distritoMedico = distrito.getText();
-            String ciudadMedico = ciudad.getText();
             String numeroMedico = numero.getText();
-            String complementoMedico = complemento.getText();
+            String ciudadMedico = ciudad.getText();
+            String provinciaMedico = provincia.getText();
+            String paisMedico = pais.getText();
 
             // Creando el JSON del médico
             String jsonMedico = String.format(
-                    "{\"id\":\"%s\",\"nombre\":\"%s\",\"documento\":\"%s\",\"direccion\":{\"calle\":\"%s\",\"distrito\":\"%s\",\"ciudad\":\"%s\",\"numero\":\"%s\",\"complemento\":\"%s\"}}",
-                    idDelMedico, nombreDelMedico, docuDelMedico, calleMedico, distritoMedico, ciudadMedico, numeroMedico, complementoMedico
+                    "{\"id\":\"%s\",\"nombre\":\"%s\",\"documento\":\"%s\",\"direccion\":{\"calle\":\"%s\",\"numero\":\"%s\",\"ciudad\":\"%s\",\"provincia\":\"%s\",\"pais\":\"%s\"}}",
+                    idDelMedico, nombreDelMedico, docuDelMedico, calleMedico, numeroMedico, ciudadMedico, provinciaMedico, paisMedico
             );
 
             //  solicitud HTTP

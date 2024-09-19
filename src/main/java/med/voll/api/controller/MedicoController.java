@@ -32,9 +32,9 @@ public class MedicoController {
         Medico medico = medicoRepository.save(new Medico(datosRegistroMedico));
         DatosRespuestaMedico datosRespuestaMedico = new DatosRespuestaMedico(medico.getId(), medico.getNombre(), medico.getEmail(),
                 medico.getTelefono(), medico.getDocumento(),
-                new DatosDireccion(medico.getDireccion().getCalle(), medico.getDireccion().getDistrito(),
-                        medico.getDireccion().getCiudad(), medico.getDireccion().getNumero(),
-                        medico.getDireccion().getComplemento()));
+                new DatosDireccion(medico.getDireccion().getCalle(), medico.getDireccion().getNumero(),
+                        medico.getDireccion().getCiudad(), medico.getDireccion().getProvincia(),
+                        medico.getDireccion().getPais()));
 
         URI url = uriComponentsBuilder.path("/medicos/{id}").buildAndExpand(medico.getId()).toUri();
         return ResponseEntity.created(url).body(datosRespuestaMedico);
@@ -56,9 +56,9 @@ public class MedicoController {
         medico.actualizarDatos(datosActualizarMedico);
         return ResponseEntity.ok(new DatosRespuestaMedico(medico.getId(), medico.getNombre(), medico.getEmail(),
                 medico.getTelefono(), medico.getEspecialidad().toString(),
-                new DatosDireccion(medico.getDireccion().getCalle(), medico.getDireccion().getDistrito(),
-                        medico.getDireccion().getCiudad(), medico.getDireccion().getNumero(),
-                        medico.getDireccion().getComplemento())));
+                new DatosDireccion(medico.getDireccion().getCalle(), medico.getDireccion().getNumero(),
+                        medico.getDireccion().getCiudad(), medico.getDireccion().getProvincia(),
+                        medico.getDireccion().getPais())));
     }
 
     // DELETE LOGICO
@@ -88,9 +88,9 @@ public class MedicoController {
         Medico medico = medicoRepository.getReferenceById(id);
         var datosMedico = new DatosRespuestaMedico(medico.getId(), medico.getNombre(), medico.getEmail(),
                 medico.getTelefono(), medico.getEspecialidad().toString(),
-                new DatosDireccion(medico.getDireccion().getCalle(), medico.getDireccion().getDistrito(),
-                        medico.getDireccion().getCiudad(), medico.getDireccion().getNumero(),
-                        medico.getDireccion().getComplemento()));
+                new DatosDireccion(medico.getDireccion().getCalle(), medico.getDireccion().getNumero(),
+                        medico.getDireccion().getCiudad(), medico.getDireccion().getProvincia(),
+                        medico.getDireccion().getPais()));
         return ResponseEntity.ok(datosMedico);
     }
 

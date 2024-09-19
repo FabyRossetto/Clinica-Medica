@@ -26,10 +26,17 @@ public class Usuario implements UserDetails {
     private String login;
     private String clave;
 
+    
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
+    
+    public Long getId(){
+        return id;
+    }
+    
+    
 
     @Override
     public String getPassword() {
@@ -45,6 +52,12 @@ public class Usuario implements UserDetails {
     public String getUsername() {
         return login;
     }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+    
+    
 
     @Override
     public boolean isAccountNonExpired() {
