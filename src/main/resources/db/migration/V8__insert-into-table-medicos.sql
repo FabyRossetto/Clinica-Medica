@@ -1,7 +1,3 @@
--- Eliminar datos de medicos
-DELETE FROM medicos;
-
--- Insertar datos en medicos
 INSERT INTO medicos (id, activo, calle, ciudad, numero, pais, provincia, documento, email, especialidad, nombre, telefono)
 VALUES
 (1, TRUE, 'b', 'b', 'b', 'b', 'b', '121212', 'aa@mail.com', 'ORTOPEDIA', 'antonio', '123456'),
@@ -10,4 +6,3 @@ VALUES
 (4, TRUE, 'b', 'b', 'b', 'b', 'b', '323232', 'dd@mail.com', 'CARDIOLOGIA', 'diego', 'b'),
 (5, TRUE, 'b', 'b', 'b', 'b', 'b', '343434', 'ee@mail.com', 'GINECOLOGIA', 'eduardo', 'b'),
 (6, TRUE, 'b', 'b', 'b', 'b', 'b', '434343', 'ff@mail.com', 'PEDIATRIA', 'fernando', 'b');
-

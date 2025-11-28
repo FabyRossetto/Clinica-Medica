@@ -1,4 +1,4 @@
--- Crear tabla pacientes
+-- 3. Crear tabla pacientes
 CREATE TABLE pacientes (
     id BIGINT NOT NULL AUTO_INCREMENT,
     nombre VARCHAR(100) NOT NULL,
@@ -10,6 +10,6 @@ CREATE TABLE pacientes (
     provincia VARCHAR(20),
     pais VARCHAR(100) NOT NULL,
     telefono VARCHAR(20) NOT NULL,
-    activo BOOLEAN NOT NULL, -- H2 usa BOOLEAN en lugar de TINYINT
+    activo BOOLEAN NOT NULL,
     PRIMARY KEY (id)
 );

@@ -1,7 +1,7 @@
 
--- Crear tabla medicos
+-- 1. Crear tabla medicos
 CREATE TABLE medicos (
-   id BIGINT AUTO_INCREMENT ,
+    id BIGINT AUTO_INCREMENT,
     nombre VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     documento VARCHAR(6) NOT NULL UNIQUE,
@@ -12,6 +12,6 @@ CREATE TABLE medicos (
     provincia VARCHAR(20),
     pais VARCHAR(100) NOT NULL,
     telefono VARCHAR(20),
-    activo BOOLEAN NOT NULL, 
+    activo BOOLEAN NOT NULL,
     PRIMARY KEY (id)
 );
