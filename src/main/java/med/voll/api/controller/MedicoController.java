@@ -93,5 +93,6 @@ public class MedicoController {
                         medico.getDireccion().getPais()));
         return ResponseEntity.ok(datosMedico);
     }
+    
 
 }
