@@ -8,6 +8,9 @@ spring:
     hikari:
       maximum-pool-size: 2  # Solo uso 2 conexiones para no saturar el plan gratis de clever
       minimum-idle: 1
+      # IMPORTANTE: Matar conexiones viejas antes que Clever Cloud lo haga
+      max-lifetime: 180000 # 3 minutos (180,000 ms)
+      connection-timeout: 30000
 
   jpa:
     show-sql: true
