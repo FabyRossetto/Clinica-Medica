@@ -1,10 +1,13 @@
 spring:
   datasource:
-   
     url: ${DB_URL}
     username: ${DB_USER}
     password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
+    # AGREGA ESTO AQUÍ:
+    hikari:
+      maximum-pool-size: 2  # Solo uso 2 conexiones para no saturar el plan gratis de clever
+      minimum-idle: 1
 
   jpa:
     show-sql: true
@@ -12,20 +15,16 @@ spring:
       hibernate:
         format_sql: true
     hibernate:
-      # En producción usamos 'validate' para que no rompa la BD. Flyway hace los cambios.
       ddl-auto: validate
 
   flyway:
     enabled: true
     baseline-on-migrate: true
-    # Flyway usará automáticamente la conexión del datasource de arriba
 
-  # Configuración para tu JWT
 api:
   security:
     token:
       secret: ${JWT_SECRET}
-
 
 #spring.datasource.url=jdbc:mysql://localhost:3306/clinica_api
 #spring.datasource.username=root
