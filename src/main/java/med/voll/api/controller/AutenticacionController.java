@@ -30,6 +30,10 @@ public class AutenticacionController {
 
     @PostMapping
     public ResponseEntity autenticarUsuario(@RequestBody @Valid DatosAutenticacionUsuario datosAutenticacionUsuario) {
+        
+        // AGREGA ESTA LÍNEA ESPÍA:
+    System.out.println("LLEGÓ LA PETICION DE LOGIN: " + datosAutenticacionUsuario.login()); 
+    
         Authentication authToken = new UsernamePasswordAuthenticationToken(datosAutenticacionUsuario.login(),
                 datosAutenticacionUsuario.clave());
         var usuarioAutenticado = authenticationManager.authenticate(authToken);
