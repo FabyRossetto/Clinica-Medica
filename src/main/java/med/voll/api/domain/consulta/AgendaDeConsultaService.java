@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 @Service
 public class AgendaDeConsultaService {
@@ -60,5 +62,18 @@ public class AgendaDeConsultaService {
             throw new ValidacionDeIntegridad("debe seleccionarse una especialidad para el medico");
         }
         return medicoRepository.seleccionarMedicoConEspecialidadEnFecha(datos.especialidad(),datos.fecha());
+    }
+    
+    public Page<DatosDetalleConsulta> consultar(Pageable paginacion) {
+        return consultaRepository.findAll(paginacion).map(DatosDetalleConsulta::new);
+    }
+    public void cancelar(DatosCancelamientoConsulta datos) {
+        if (!consultaRepository.existsById(datos.idConsulta())) {
+            throw new ValidacionDeIntegridad("Id de la consulta no existe");
+        }
+
+        var consulta = consultaRepository.getReferenceById(datos.idConsulta());
+        consulta.cancelar(datos.motivo());
+        // Al ser @Transactional (en el controller), JPA guarda el cambio automáticamente
     }
 }
