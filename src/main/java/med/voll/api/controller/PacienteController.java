@@ -6,6 +6,7 @@ import jakarta.validation.Valid;
 import med.voll.api.domain.paciente.*;
 import med.voll.api.infra.errores.TratadorDeErrores;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -28,11 +29,17 @@ public class PacienteController {
     @Transactional
     @Operation(summary = "Registra un nuevo paciente")
     public ResponseEntity registrar(@RequestBody @Valid DatosRegistroPaciente datos, UriComponentsBuilder uriBuilder) {
-        var paciente = new Paciente(datos);
-        repository.save(paciente);
+        try {
+            var paciente = new Paciente(datos);
+            repository.save(paciente); // <--- Aquí es donde salta el error si el DNI existe
 
-        var uri = uriBuilder.path("/pacientes/{id}").buildAndExpand(paciente.getId()).toUri();
-        return ResponseEntity.created(uri).body(new DatosDetallesPaciente(paciente));
+            var uri = uriBuilder.path("/pacientes/{id}").buildAndExpand(paciente.getId()).toUri();
+            return ResponseEntity.created(uri).body(new DatosDetallesPaciente(paciente));
+
+        } catch (DataIntegrityViolationException e) {
+            // Atrapamos el error de duplicado y devolvemos un mensaje claro (Código 400 Bad Request)
+            return ResponseEntity.badRequest().body("Error: El documento ingresado ya pertenece a un paciente registrado.");
+        }
     }
 
     @GetMapping

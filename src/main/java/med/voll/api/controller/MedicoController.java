@@ -1,4 +1,4 @@
- package med.voll.api.controller;
+package med.voll.api.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
+import org.springframework.dao.DataIntegrityViolationException;
 
 @RestController
 @RequestMapping("/medicos")
@@ -27,18 +28,25 @@ public class MedicoController {
     @PostMapping
     @Transactional
     @Operation(summary = "Registra un nuevo medico en la base de datos")
-    public ResponseEntity<DatosRespuestaMedico> registrarMedico(@RequestBody @Valid DatosRegistroMedico datosRegistroMedico,
-                                                                UriComponentsBuilder uriComponentsBuilder) {
-        Medico medico = medicoRepository.save(new Medico(datosRegistroMedico));
-        DatosRespuestaMedico datosRespuestaMedico = new DatosRespuestaMedico(medico.getId(), medico.getNombre(), medico.getEmail(),
-                medico.getTelefono(), medico.getDocumento(),
-                new DatosDireccion(medico.getDireccion().getCalle(), medico.getDireccion().getNumero(),
-                        medico.getDireccion().getCiudad(), medico.getDireccion().getProvincia(),
-                        medico.getDireccion().getPais()));
+    public ResponseEntity registrarMedico(@RequestBody @Valid DatosRegistroMedico datosRegistroMedico,
+            UriComponentsBuilder uriComponentsBuilder) {
+        try {
+            Medico medico = medicoRepository.save(new Medico(datosRegistroMedico)); // <--- Aquí salta el error
 
-        URI url = uriComponentsBuilder.path("/medicos/{id}").buildAndExpand(medico.getId()).toUri();
-        return ResponseEntity.created(url).body(datosRespuestaMedico);
+            DatosRespuestaMedico datosRespuestaMedico = new DatosRespuestaMedico(
+                    medico.getId(), medico.getNombre(), medico.getEmail(),
+                    medico.getTelefono(), medico.getDocumento(),
+                    new DatosDireccion(medico.getDireccion().getCalle(), medico.getDireccion().getNumero(),
+                            medico.getDireccion().getCiudad(), medico.getDireccion().getProvincia(),
+                            medico.getDireccion().getPais()));
 
+            URI url = uriComponentsBuilder.path("/medicos/{id}").buildAndExpand(medico.getId()).toUri();
+            return ResponseEntity.created(url).body(datosRespuestaMedico);
+
+        } catch (DataIntegrityViolationException e) {
+            // Mensaje personalizado para el médico
+            return ResponseEntity.badRequest().body("Error: El documento o matrícula ya existe para otro médico.");
+        }
     }
 
     @GetMapping
@@ -70,17 +78,14 @@ public class MedicoController {
 //        medico.desactivarMedico();
 //        return ResponseEntity.noContent().build();
 //    }
-    
     // DELETE
     @DeleteMapping("/{id}")
     @Transactional
     @Operation(summary = "Elimina de la base de datos un medico registrado")
     public ResponseEntity eliminarMedico(@PathVariable Long id) {
-       medicoRepository.deleteById(id);
-       return ResponseEntity.noContent().build();
+        medicoRepository.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
-    
-    
 
     @GetMapping("/{id}")
     @Operation(summary = "Obtiene los registros del medico con ID")
@@ -93,6 +98,5 @@ public class MedicoController {
                         medico.getDireccion().getPais()));
         return ResponseEntity.ok(datosMedico);
     }
-    
 
 }
