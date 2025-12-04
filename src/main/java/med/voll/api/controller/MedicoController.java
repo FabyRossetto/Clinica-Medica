@@ -44,10 +44,23 @@ public class MedicoController {
             return ResponseEntity.created(url).body(datosRespuestaMedico);
 
         } catch (DataIntegrityViolationException e) {
-            // Mensaje personalizado para el médico
-            return ResponseEntity.badRequest().body("Error: El documento o matrícula ya existe para otro médico.");
+        // Obtenemos el mensaje técnico de error
+        String mensajeTecnico = e.getMostSpecificCause().getMessage();
+
+        // Verificamos si el mensaje técnico menciona la columna 'documento' o 'email'
+        
+        if (mensajeTecnico.contains("documento") || mensajeTecnico.contains("dni")) {
+            return ResponseEntity.badRequest().body("Error: Ya existe un paciente con ese Documento.");
+        } 
+        if (mensajeTecnico.contains("email") || mensajeTecnico.contains("correo")) {
+            return ResponseEntity.badRequest().body("Error: Ya existe un paciente con ese Email.");
         }
+
+        // Mensaje por defecto si es otro error de duplicado
+        return ResponseEntity.badRequest().body("Error: Datos duplicados (DNI o Email ya registrados).");
     }
+        }
+    
 
     @GetMapping
     @Operation(summary = "Obtiene el listado de medicos")

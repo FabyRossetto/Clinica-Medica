@@ -26,21 +26,33 @@ public class PacienteController {
     private PacienteRepository repository;
 
     @PostMapping
-    @Transactional
-    @Operation(summary = "Registra un nuevo paciente")
-    public ResponseEntity registrar(@RequestBody @Valid DatosRegistroPaciente datos, UriComponentsBuilder uriBuilder) {
-        try {
-            var paciente = new Paciente(datos);
-            repository.save(paciente); // <--- Aquí es donde salta el error si el DNI existe
+@Transactional
+@Operation(summary = "Registra un nuevo paciente")
+public ResponseEntity registrar(@RequestBody @Valid DatosRegistroPaciente datos, UriComponentsBuilder uriBuilder) {
+    try {
+        var paciente = new Paciente(datos);
+        repository.save(paciente);
+        
+        var uri = uriBuilder.path("/pacientes/{id}").buildAndExpand(paciente.getId()).toUri();
+        return ResponseEntity.created(uri).body(new DatosDetallesPaciente(paciente));
 
-            var uri = uriBuilder.path("/pacientes/{id}").buildAndExpand(paciente.getId()).toUri();
-            return ResponseEntity.created(uri).body(new DatosDetallesPaciente(paciente));
+    } catch (DataIntegrityViolationException e) {
+        // Obtenemos el mensaje técnico de error
+        String mensajeTecnico = e.getMostSpecificCause().getMessage();
 
-        } catch (DataIntegrityViolationException e) {
-            // Atrapamos el error de duplicado y devolvemos un mensaje claro (Código 400 Bad Request)
-            return ResponseEntity.badRequest().body("Error: El documento ingresado ya pertenece a un paciente registrado.");
+        // Verificamos si el mensaje técnico menciona la columna 'documento' o 'email'
+        
+        if (mensajeTecnico.contains("documento") || mensajeTecnico.contains("dni")) {
+            return ResponseEntity.badRequest().body("Error: Ya existe un paciente con ese Documento.");
+        } 
+        if (mensajeTecnico.contains("email") || mensajeTecnico.contains("correo")) {
+            return ResponseEntity.badRequest().body("Error: Ya existe un paciente con ese Email.");
         }
+
+        // Mensaje por defecto si es otro error de duplicado
+        return ResponseEntity.badRequest().body("Error: Datos duplicados (DNI o Email ya registrados).");
     }
+}
 
     @GetMapping
     @Operation(summary = "Obtiene el listado para los pacientes")
