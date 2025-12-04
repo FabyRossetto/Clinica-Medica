@@ -52,4 +52,11 @@ public class UserController {
         URI url = uriComponentsBuilder.path("/usuarios/{id}").buildAndExpand(usuario.getId()).toUri();
         return ResponseEntity.created(url).body(usuario);
     }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity eliminarUsuario(@PathVariable Long id) {
+        usuarioRepository.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
 }
