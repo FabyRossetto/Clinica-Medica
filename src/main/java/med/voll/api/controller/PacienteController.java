@@ -25,7 +25,7 @@ public class PacienteController {
     @Autowired
     private PacienteRepository repository;
 
-    @PostMapping
+@PostMapping
 @Transactional
 @Operation(summary = "Registra un nuevo paciente")
 public ResponseEntity registrar(@RequestBody @Valid DatosRegistroPaciente datos, UriComponentsBuilder uriBuilder) {
