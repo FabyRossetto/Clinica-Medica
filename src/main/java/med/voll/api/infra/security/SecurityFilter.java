@@ -24,25 +24,36 @@ public class SecurityFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        // Obtener el token del header
+        System.out.println(">>> INTENTO DE REQUEST: " + request.getMethod() + " " + request.getRequestURI()); // Veremos si llega el PUT
+        
         var authHeader = request.getHeader("Authorization");
+        
         if (authHeader != null) {
             var token = authHeader.replace("Bearer ", "");
-            var nombreUsuario = tokenService.getSubject(token); // extract username
-            if (nombreUsuario != null) {
-                // Token valido
-                var usuario = usuarioRepository.findByLogin(nombreUsuario);
-                var authentication = new UsernamePasswordAuthenticationToken(usuario, null,
-                        usuario.getAuthorities()); // Forzamos un inicio de sesion
-                SecurityContextHolder.getContext().setAuthentication(authentication);
+            try {
+                // Aquí es donde falla si la clave es distinta
+                var nombreUsuario = tokenService.getSubject(token); 
+                
+                if (nombreUsuario != null) {
+                    var usuario = usuarioRepository.findByLogin(nombreUsuario);
+                    if (usuario != null) {
+                        var authentication = new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());
+                        SecurityContextHolder.getContext().setAuthentication(authentication);
+                        System.out.println(">>> EXITO: Usuario autenticado: " + nombreUsuario);
+                    } else {
+                        System.err.println(">>> ERROR: Token válido, pero usuario no encontrado en BD.");
+                    }
+                }
+            } catch (Exception e) {
+                // ESTO ES LO QUE NECESITAMOS VER
+                System.err.println(">>> ERROR CRÍTICO TOKEN: " + e.getClass().getSimpleName() + " - " + e.getMessage());
+                e.printStackTrace(); // Imprime la traza completa en la consola de Render
             }
+        } else {
+            System.out.println(">>> AVISO: No llegó header Authorization (Normal para Login/Swagger)");
         }
-        System.out.println("Filtro completado. Usuario autenticado: "
-                + (SecurityContextHolder.getContext().getAuthentication() != null
-                ? SecurityContextHolder.getContext().getAuthentication().getName() : "NADIE"));
-        System.out.println("Request Method: " + request.getMethod());
-        System.out.println("Request URI: " + request.getRequestURI());
-
+        
         filterChain.doFilter(request, response);
     }
 }
+
