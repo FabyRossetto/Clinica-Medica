@@ -19,6 +19,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 
 @RestController
 @RequestMapping("/medicos")
+@CrossOrigin(origins = "*")
 @SecurityRequirement(name = "bearer-key")
 public class MedicoController {
 
