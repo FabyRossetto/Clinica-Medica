@@ -100,10 +100,16 @@ public class PacienteController {
     @Transactional
     @Operation(summary = "Elimina un paciente a partir del ID")
     public ResponseEntity eliminar(@PathVariable Long id) {
-        var paciente = repository.getReferenceById(id);
-        paciente.eliminar();
+        try {
+            var paciente = repository.getReferenceById(id);
+            paciente.eliminar();
 
-        return ResponseEntity.noContent().build();
+            return ResponseEntity.noContent().build();
+        } catch (DataIntegrityViolationException e) {
+            return ResponseEntity.badRequest().body("No se puede eliminar el paciente porque tiene consultas/turnos asignados.");
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @GetMapping("/{id}")

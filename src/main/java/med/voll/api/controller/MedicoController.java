@@ -134,8 +134,15 @@ public class MedicoController {
     @Transactional
     @Operation(summary = "Elimina de la base de datos un medico registrado")
     public ResponseEntity eliminarMedico(@PathVariable Long id) {
-        medicoRepository.deleteById(id);
-        return ResponseEntity.noContent().build();
+        try {
+            medicoRepository.deleteById(id);
+            return ResponseEntity.noContent().build();
+        } catch (DataIntegrityViolationException e) {
+
+            return ResponseEntity.badRequest().body("No se puede eliminar el médico porque tiene consultas asignadas.");
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @GetMapping("/{id}")
@@ -143,7 +150,7 @@ public class MedicoController {
     public ResponseEntity<DatosRespuestaMedico> retornaDatosMedico(@PathVariable Long id) {
         Medico medico = medicoRepository.getReferenceById(id);
         var datosMedico = new DatosRespuestaMedico(medico.getId(), medico.getNombre(), medico.getEmail(),
-                medico.getTelefono(), medico.getEspecialidad().toString(),
+                medico.getTelefono(), medico.getDocumento(),
                 new DatosDireccion(medico.getDireccion().getCalle(), medico.getDireccion().getNumero(),
                         medico.getDireccion().getCiudad(), medico.getDireccion().getProvincia(),
                         medico.getDireccion().getPais()));
