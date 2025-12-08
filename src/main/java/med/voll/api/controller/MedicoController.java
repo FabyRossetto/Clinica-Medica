@@ -137,11 +137,10 @@ public class MedicoController {
         try {
             medicoRepository.deleteById(id);
             return ResponseEntity.noContent().build();
-        } catch (DataIntegrityViolationException e) {
+        } catch (Exception e) {
 
             return ResponseEntity.badRequest().body("No se puede eliminar el médico porque tiene consultas asignadas.");
-        } catch (EntityNotFoundException e) {
-            return ResponseEntity.notFound().build();
+
         }
     }
 
