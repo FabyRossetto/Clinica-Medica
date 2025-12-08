@@ -2,6 +2,7 @@ package med.voll.api.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import med.voll.api.domain.paciente.*;
 import med.voll.api.infra.errores.TratadorDeErrores;
@@ -26,34 +27,33 @@ public class PacienteController {
     @Autowired
     private PacienteRepository repository;
 
-@PostMapping
-@Transactional
-@Operation(summary = "Registra un nuevo paciente")
-public ResponseEntity registrar(@RequestBody @Valid DatosRegistroPaciente datos, UriComponentsBuilder uriBuilder) {
-    try {
-        var paciente = new Paciente(datos);
-        repository.save(paciente);
-        
-        var uri = uriBuilder.path("/pacientes/{id}").buildAndExpand(paciente.getId()).toUri();
-        return ResponseEntity.created(uri).body(new DatosDetallesPaciente(paciente));
+    @PostMapping
+    @Transactional
+    @Operation(summary = "Registra un nuevo paciente")
+    public ResponseEntity registrar(@RequestBody @Valid DatosRegistroPaciente datos, UriComponentsBuilder uriBuilder) {
+        try {
+            var paciente = new Paciente(datos);
+            repository.save(paciente);
 
-    } catch (DataIntegrityViolationException e) {
-        // Obtenemos el mensaje técnico de error
-        String mensajeTecnico = e.getMostSpecificCause().getMessage();
+            var uri = uriBuilder.path("/pacientes/{id}").buildAndExpand(paciente.getId()).toUri();
+            return ResponseEntity.created(uri).body(new DatosDetallesPaciente(paciente));
 
-        // Verificamos si el mensaje técnico menciona la columna 'documento' o 'email'
-        
-        if (mensajeTecnico.contains("documento") || mensajeTecnico.contains("dni")) {
-            return ResponseEntity.badRequest().body("Error: Ya existe un paciente con ese Documento.");
-        } 
-        if (mensajeTecnico.contains("email") || mensajeTecnico.contains("correo")) {
-            return ResponseEntity.badRequest().body("Error: Ya existe un paciente con ese Email.");
+        } catch (DataIntegrityViolationException e) {
+            // Obtenemos el mensaje técnico de error
+            String mensajeTecnico = e.getMostSpecificCause().getMessage();
+
+            // Verificamos si el mensaje técnico menciona la columna 'documento' o 'email'
+            if (mensajeTecnico.contains("documento") || mensajeTecnico.contains("dni")) {
+                return ResponseEntity.badRequest().body("Error: Ya existe un paciente con ese Documento.");
+            }
+            if (mensajeTecnico.contains("email") || mensajeTecnico.contains("correo")) {
+                return ResponseEntity.badRequest().body("Error: Ya existe un paciente con ese Email.");
+            }
+
+            // Mensaje por defecto si es otro error de duplicado
+            return ResponseEntity.badRequest().body("Error: Datos duplicados (DNI o Email ya registrados).");
         }
-
-        // Mensaje por defecto si es otro error de duplicado
-        return ResponseEntity.badRequest().body("Error: Datos duplicados (DNI o Email ya registrados).");
     }
-}
 
     @GetMapping
     @Operation(summary = "Obtiene el listado para los pacientes")
@@ -66,10 +66,34 @@ public ResponseEntity registrar(@RequestBody @Valid DatosRegistroPaciente datos,
     @Transactional
     @Operation(summary = "Actualiza las informaciones para el paciente")
     public ResponseEntity actualizar(@RequestBody @Valid DatosActualizacionPaciente datos) {
-        var paciente = repository.getReferenceById(datos.id());
-        paciente.actualizarInformacoes(datos);
+        try {
+            // 1. Buscamos el paciente
+            var paciente = repository.getReferenceById(datos.id());
 
-        return ResponseEntity.ok(new DatosDetallesPaciente(paciente));
+            // 2. Actualizamos los datos
+            paciente.actualizarInformacoes(datos);
+
+            // 3. Forzamos la transacción para detectar duplicados AHORA
+            repository.flush();
+
+            // 4. Retornamos el objeto actualizado
+            return ResponseEntity.ok(new DatosDetallesPaciente(paciente));
+
+        } catch (DataIntegrityViolationException e) {
+            // 5. Manejo de excepciones de duplicados
+            String mensajeTecnico = e.getMostSpecificCause().getMessage();
+
+            if (mensajeTecnico.contains("documento") || mensajeTecnico.contains("dni")) {
+                return ResponseEntity.badRequest().body("Error: El documento ya pertenece a otro paciente.");
+            }
+            if (mensajeTecnico.contains("email") || mensajeTecnico.contains("correo")) {
+                return ResponseEntity.badRequest().body("Error: El email ya está registrado.");
+            }
+            return ResponseEntity.badRequest().body("Error: Datos duplicados (DNI o Email).");
+
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @DeleteMapping("/{id}")
