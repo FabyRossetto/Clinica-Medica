@@ -90,7 +90,7 @@ public class MedicoController {
                     medico.getNombre(),
                     medico.getEmail(),
                     medico.getTelefono(),
-                    medico.getDocumento(), 
+                    medico.getDocumento(),
                     new DatosDireccion(
                             medico.getDireccion().getCalle(),
                             medico.getDireccion().getNumero(),
@@ -113,7 +113,10 @@ public class MedicoController {
             return ResponseEntity.badRequest().body("Error: Datos duplicados (DNI o Email).");
 
         } catch (EntityNotFoundException e) {
-            return ResponseEntity.notFound().build();
+            System.out.println(">>> ERROR CRITICO EN UPDATE: " + e.getMessage());
+            e.printStackTrace(); // <--- ESTO IMPRIMIRÁ EL ERROR REAL EN LA CONSOLA
+            return ResponseEntity.internalServerError().body("Error interno del servidor: " + e.toString());
+
         }
     }
 
