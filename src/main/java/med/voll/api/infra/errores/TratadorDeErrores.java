@@ -37,5 +37,12 @@ public class TratadorDeErrores {
             this(error.getField(), error.getDefaultMessage());
         }
     }
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity tratarError500(Exception e) {
+        // mprimirá el error real de conversión JSON
+        System.out.println(">>> ERROR CAPTURADO POR TRATADOR: " + e.getMessage());
+        e.printStackTrace(); 
+        return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+    }
 
 }
