@@ -10,7 +10,8 @@ spring:
       minimum-idle: 1
       # IMPORTANTE: Matar conexiones viejas antes que Clever Cloud lo haga
       max-lifetime: 180000 # 3 minutos (180,000 ms)
-      connection-timeout: 30000
+      connection-timeout: 20000
+      keepalive-time: 30000 # 30 segundos. Mantiene el "tubo" caliente.
 
   jpa:
     show-sql: true

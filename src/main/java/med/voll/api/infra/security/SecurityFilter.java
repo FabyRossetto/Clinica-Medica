@@ -45,7 +45,7 @@ public class SecurityFilter extends OncePerRequestFilter {
                     }
                 }
             } catch (Exception e) {
-                // ESTO ES LO QUE NECESITAMOS VER
+                
                 System.err.println(">>> ERROR CRÍTICO TOKEN: " + e.getClass().getSimpleName() + " - " + e.getMessage());
                 e.printStackTrace(); // Imprime la traza completa en la consola de Render
             }
