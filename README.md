@@ -1,22 +1,20 @@
-# API REST para Clínica Médica
+# Medical Clinic REST API 🏥
 
-## Descripción
-Esta API REST está desarrollada en Java con Spring Boot para gestionar una clínica médica. Permite el login de un usuario asi como el registro, actualización, consulta y eliminación de médicos y pacientes, además de agendar consultas. Es un proyecto hecho en el marco del programa ONE (Oracle Next Education).
+**Live Demo:** [clinica-medica-voll-med.netlify.app](https://clinica-medica-voll-med.netlify.app/)
 
-## Tecnologías Utilizadas
-- **Java 17**
-- **Spring Boot**
-- **MySQL**
-- **Maven**
-- **JWT (JSON Web Tokens)** para autenticación
-- **JUnit y Mockito** para pruebas
-- **Swagger** para documentación
-- **Flyway** para migraciones de base de datos
-- **Spring Security**
-- **Records** como DTO
-- **LocalDateTime** para manejo de fechas y horas.
+### Description
+This REST API was developed using Java and Spring Boot to manage a medical clinic's operations. Created within the framework of the **ONE (Oracle Next Education)** program, the system handles user authentication, comprehensive management of doctors and patients, and medical appointment scheduling.
 
-  
+### 🚀 Key Features
+* **User Authentication:** Secure login using **JWT (JSON Web Tokens)** and Spring Security.
+* **Patient & Doctor Management:** Full CRUD (Create, Read, Update, Delete) operations for medical staff and patients.
+* **Appointment Scheduling:** Logic for booking and managing medical appointments.
+* **Data Integrity:** Database migrations handled via Flyway and time management using `LocalDateTime`.
 
+### 🛠 Technologies Used
+* **Languages & Core:** Java 17, Maven, Records .
+* **Frameworks:** Spring Boot, Spring Security.
+* **Database:** MySQL, Flyway.
+* **Documentation & Testing:** Swagger (OpenAPI), JUnit, Mockito.
 
 
